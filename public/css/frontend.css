@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif+Caption:ital@0;1&display=swap');
+
+:root {
+    --primary: #8D493A;
+    --secondary:#FED8B1;
+    --white: #FFFFFF;
+    --black: ##000000;
+    --primary-font:"Laila", serif;
+}
+body{
+    margin-top:100px !important;
+    min-height: 1500px;
+}
+.h1{
+    font-size: 48px !important;
+    color: var(--primary);
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-style: normal;
+}
+@media (min-width: 992px){
+    .navbar li {
+        margin-left : 1em;
+        margin-right : 1em;
+    }
+}
+nav{
+    height:80px;
+    background-color: var(--white) !important;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+.site-logo{
+    height:60px !important;
+}
+.apply-button{
+    padding:5px 30px 5px 30px !important;
+    background-color: var(--primary);
+    border-radius: 25px !important;
+    color: var(--white);    
+}
+.apply-button:hover{
+    padding:5px 30px 5px 30px !important;
+    background-color: var(--secondary);
+    border-radius: 25px !important;
+    color: var(--primary);    
+}
+
+/* .light-brown-background{
+    background-color: var(--secondary);
+} */
+
+/******************************************************************* Home Nav Tab **********************************************************/
+
+.nav-tabs {
+    border-bottom: 0px solid transparent;
+}
+.nav-tabs .nav-link {
+    color: var(--black) !important;
+    border: 0px solid transparent;
+    border-radius: 0px !important;
+    padding:5px 75px 5px 75px !important;
+    margin: 10px;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-link.hover{
+    color: var(--white) !important;
+    background-color: var(--primary) !important;
+    border-radius:50px !important;
+}
+
+/******************************************************************* Home Flip Box **********************************************************/
+/* .flip-box {
+    background-color: transparent;
+    height: 200px;
+    perspective: 1000px;
+}
+  
+.flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-box-front {
+    background-color: #f5f4f5 !important;
+    border-radius: 4px !important;
+    padding:15px !important;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.flip-box-back {
+    background-color: var(--white) !important;
+    border-radius: 4px !important;
+    padding:15px !important;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transform: rotateY(180deg);
+} */
+
+.home-products-card{
+    margin-top: 20px;
+}

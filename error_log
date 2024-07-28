@@ -1,0 +1,2 @@
+[20-Jul-2024 10:53:33 UTC] PHP Parse error:  syntax error, unexpected token "readonly", expecting "abstract" or "final" or "class" in /home/antrix/ss.antrixwebsolution.com/vendor/sebastian/version/src/Version.php on line 23
+[20-Jul-2024 10:53:40 UTC] PHP Parse error:  syntax error, unexpected token "readonly", expecting "abstract" or "final" or "class" in /home/antrix/ss.antrixwebsolution.com/vendor/sebastian/version/src/Version.php on line 23
