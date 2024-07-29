@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="{{ asset('css/backend.css') }}">
     </head>
     <body class="bg-light">
-        <div class="container-fluid shadow-lg header">
+        <!-- <div class="container-fluid shadow-lg header">
             <div class="container">
                 <div class="d-flex justify-content-between">
                     <h1 class="text-center"><a href="{{ url('/') }}" class="h3 text-white text-decoration-none">MSME Subsidy Application</a></h1>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         
         @yield('content')
         @yield('script')

@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-5">
-                                    <h4 class="text-center">Login Here</h4>
+                                    <img src="{{ asset('img/logo.png') }}" alt="SME Loan Online" class="img-fluid">
                                 </div>
                             </div>
                         </div>

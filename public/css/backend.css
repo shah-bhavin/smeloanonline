@@ -19,7 +19,9 @@ body{
 .header{
     background-color: var(--btn-bg-primary);
 }
-
+.site-logo{
+    height:60px !important;
+}
 .star-rating {
     display: flex;
     align-items: center;

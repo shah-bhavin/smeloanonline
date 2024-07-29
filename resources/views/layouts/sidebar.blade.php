@@ -21,7 +21,7 @@
                 </div>
                 <div class="card-body sidebar">
                     <ul class="nav flex-column">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="{{ route('list.application') }}">Applications</a>                               
                         </li>
                         <li class="nav-item">
@@ -34,7 +34,10 @@
                         <li class="nav-item">
                             <a href="reviews.html">Reviews</a>                               
                         </li>
-                        @endif
+                        @endif -->
+                        <li class="nav-item">
+                            <a href="{{ route('index.product') }}">Products</a>                               
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('show.profile') }}">Profile</a>                               
                         </li>                        

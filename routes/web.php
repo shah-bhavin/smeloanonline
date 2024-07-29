@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\AuthController;
 Use App\Http\Controllers\ApplicationController;
 Use App\Http\Controllers\SchemeController;
+Use App\Http\Controllers\ProductsController;
 
 Route::view('/', 'default');
 
@@ -30,5 +31,10 @@ Route::group(['prefix' => 'admin'], function(){
 
         //-------------------------------------------Scheme Route -------------------------------------
         Route::get('schemes', [SchemeController::class, 'index'])->name('index.scheme');
+
+        //-------------------------------------------Product Route -------------------------------------
+
+        Route::get('products', [ProductsController::class, 'index'])->name('index.product');
+
     });
 });
