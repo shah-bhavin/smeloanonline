@@ -10,7 +10,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-5">
-                                <img src="{{ asset('img/logo.png') }}" alt="SME Loan Online" class="img-fluid">
+                                    <a href="{{ url('/') }}">
+                                        <img src="{{ asset('img/logo.png') }}" alt="SME Loan Online" class="img-fluid">
+                                    </a>                                
                                 </div>
                             </div>
                         </div>

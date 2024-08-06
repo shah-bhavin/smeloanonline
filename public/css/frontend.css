@@ -1,15 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif+Caption:ital@0;1&display=swap');
 
 :root {
-    --primary: #8D493A;
-    --secondary:#FED8B1;
+    --primary: #A91B60;
+    --secondary:#FF0080;
     --white: #FFFFFF;
     --black: ##000000;
-    --primary-font:"Laila", serif;
+    --text:#333333;
+    --primary-font:'Poppins', sans-serif ;
+    --secondary-font:'Roboto', sans-serif;
 }
 body{
     margin-top:100px !important;
     min-height: 1500px;
+    font-size: 15px !important;
+    font-family: var(--secondary-font) !important;
+    font-weight: 400 !important;
+    letter-spacing: 1px !important;
+}
+
+
+.text-justify {
+    text-align: justify;
 }
 .h1{
     font-size: 48px !important;
@@ -42,24 +52,39 @@ nav{
     padding:5px 30px 5px 30px !important;
     background-color: var(--secondary);
     border-radius: 25px !important;
-    color: var(--primary);    
+    color: var(--white);    
 }
 
-/* .light-brown-background{
+.button{
+    padding:5px 30px 5px 30px !important;
+    background-color: var(--primary);
+    border: 0px;
+    border-radius: 25px !important;
+    color: var(--white);    
+}
+.button:hover{
+    padding:5px 30px 5px 30px !important;
     background-color: var(--secondary);
-} */
+    border-radius: 25px !important;
+    color: var(--white);    
+}
 
 /******************************************************************* Home Nav Tab **********************************************************/
 
 .nav-tabs {
     border-bottom: 0px solid transparent;
+    font-size: 24px;
+    font-weight: 600;
 }
 .nav-tabs .nav-link {
-    color: var(--black) !important;
+    color: var(--secondary) !important;
+    font-family: var(--secondary-font) !important;
     border: 0px solid transparent;
     border-radius: 0px !important;
     padding:5px 75px 5px 75px !important;
     margin: 10px;
+    letter-spacing: 3px !important;
+
 }
 .nav-tabs .nav-link.active, .nav-tabs .nav-link.hover{
     color: var(--white) !important;
@@ -67,49 +92,88 @@ nav{
     border-radius:50px !important;
 }
 
-/******************************************************************* Home Flip Box **********************************************************/
-/* .flip-box {
-    background-color: transparent;
-    height: 200px;
-    perspective: 1000px;
-}
-  
-.flip-box-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.flip-box:hover .flip-box-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-box-front, .flip-box-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.flip-box-front {
-    background-color: #f5f4f5 !important;
-    border-radius: 4px !important;
-    padding:15px !important;
+/******************************************************************* Home Products Box **********************************************************/
+.home-product{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 4px;
+}
+.home-product:hover{
+    box-shadow: rgba(149, 157, 165, 0.5) 0px 8px 24px;
+    border-radius: 14px;
+}
+.home-product img{
+    width:400px;
+    height: 250px;
+}
+.showProductInqueryForm{
+    text-decoration:none;
 }
 
-.flip-box-back {
-    background-color: var(--white) !important;
-    border-radius: 4px !important;
-    padding:15px !important;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    transform: rotateY(180deg);
-} */
+.home-product i {
+    border-radius: 50%;
+    border: 3px solid var(--secondary);
+    padding: 20px;
+    font-size: 32px;
+    color: var(--secondary);
+}
 
-.home-products-card{
-    margin-top: 20px;
+.home-product i:hover {
+    border-radius: 50%;
+    border: 3px solid var(--white);
+    background-color: var(--primary);
+    padding: 20px;
+    font-size: 32px;
+    color: var(--white);
+}
+
+.home-product .home-product-shortname{
+    font-size: 24px !important;
+    color: var(--primary);
+    font-family: var(--primary-font);
+    font-weight: 700 !important;
+    letter-spacing: 2px;
+}
+
+.home-product .home-product-name{
+    font-size: 16px !important;
+    color: var(--secondary);
+    font-family: var(--primary-font);
+    font-weight: 400;
+}
+
+
+/******************************************************************* Footer Style **********************************************************/
+.footer {
+    background-color: var(--primary);
+    color: var(--white);
+    p{
+        font-family: var(--text);
+        font-weight: 300;
+        text-align: justify !important;
+    }
+  }
+
+  .footer a {
+    color: var(--white);
+    text-decoration: none;
+  }
+  .footer a:hover {
+    color: #FEC84D;
+  }
+  .footer h5 {
+    margin-bottom: 20px;
+  }
+
+/******************************************************************* Modal **********************************************************/
+.modal{
+    border-radius: 0px !important;
+}
+.modal .modal-header{
+    background-color: var(--primary);
+    .modal-title{
+       color: var(--white); 
+       font-family: var(--primary-font);
+       font-size: 18px;
+       font-weight: 500;
+    }
 }

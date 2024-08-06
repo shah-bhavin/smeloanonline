@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('product_name', 1024);
-            $table->string('product_desc', 1024)->nullable();;
+            $table->string('product_shortname', 1024)->nullable();
+            $table->string('product_desc', 1024)->nullable();
             $table->enum('product_type', ['1','2'])->default('1'); //1:Loan, 2:Subsidy
             $table->enum('status', ['1','2'])->default('1'); //1:Active, 2:Inactive
             $table->timestamps();

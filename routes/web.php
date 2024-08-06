@@ -6,7 +6,7 @@ Use App\Http\Controllers\ApplicationController;
 Use App\Http\Controllers\SchemeController;
 Use App\Http\Controllers\ProductsController;
 
-Route::view('/', 'default');
+Route::get('/', [ProductsController::class, 'showProductsHome'])->name('homme.product');
 
 
 Route::group(['prefix' => 'admin'], function(){
@@ -23,14 +23,17 @@ Route::group(['prefix' => 'admin'], function(){
         Route::post('updateprofile', [AuthController::class, 'updateprofile'])->name('update.register');
         
         //-------------------------------------------Applications Route -------------------------------------
-        Route::get('applications', [ApplicationController::class, 'listApplications'])->name('list.application');
-        Route::get('applications/add', [ApplicationController::class, 'addApplication'])->name('add.application');
-        Route::post('applications/save', [ApplicationController::class, 'saveApplication'])->name('save.application');
-        Route::get('applications/edit/{id}', [ApplicationController::class, 'editApplication'])->name('edit.application');
-        Route::delete('applications', [ApplicationController::class, 'deleteApplication'])->name('delete.application');
+        // Route::get('applications', [ApplicationController::class, 'listAdminApplications'])->name('list.application');
+        // Route::get('applications/add', [ApplicationController::class, 'addAdminApplication'])->name('add.application');
+        // Route::post('applications/save', [ApplicationController::class, 'saveAdminApplication'])->name('save.application');
+        // Route::get('applications/edit/{id}', [ApplicationController::class, 'editAdminApplication'])->name('edit.application');
+        // Route::delete('applications', [ApplicationController::class, 'deleteAdminApplication'])->name('delete.application');
 
         //-------------------------------------------Scheme Route -------------------------------------
         Route::get('schemes', [SchemeController::class, 'index'])->name('index.scheme');
+        
+        //-------------------------------------------Application Route -------------------------------------
+        Route::get('application', [ApplicationController::class, 'index'])->name('index.admin.application');
 
         //-------------------------------------------Product Route -------------------------------------
 

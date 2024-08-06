@@ -21,10 +21,10 @@
                 </div>
                 <div class="card-body sidebar">
                     <ul class="nav flex-column">
-                        <!-- <li class="nav-item">
-                            <a href="{{ route('list.application') }}">Applications</a>                               
-                        </li>
                         <li class="nav-item">
+                            <a href="{{ route('index.admin.application') }}">Applications</a>                               
+                        </li>
+                        <!--<li class="nav-item">
                             <a href="{{ route('index.scheme') }}">Schemes</a>                               
                         </li>
                         @if(Auth::user()->role == 'admin')
@@ -38,12 +38,12 @@
                         <li class="nav-item">
                             <a href="{{ route('index.product') }}">Products</a>                               
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="{{ route('show.profile') }}">Profile</a>                               
                         </li>                        
                         <li class="nav-item">
                             <a href="change-password.html">Change Password</a>
-                        </li> 
+                        </li>  -->
                         <li class="nav-item">
                             <a href="{{ route('logout') }}">Logout</a>
                         </li>                           

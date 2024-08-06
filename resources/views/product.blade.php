@@ -16,6 +16,7 @@
                         <thead>
                             <tr>
                                 <th class="text-center">No</th>
+                                <th class="text-center">Short Name</th>
                                 <th class="text-center">Name</th>
                                 <th class="text-center">Product Type</th>
                                 <th class="text-center">Status</th>
@@ -25,6 +26,7 @@
                         <tbody class="table-data">
                             <tr>
                                 <td class="text-center">No</td>
+                                <td class="text-center">Short Name</td>
                                 <td class="text-center">Name</td>
                                 <td class="text-center">Product Type</td>
                                 <td class="text-center">Status</td>
@@ -55,12 +57,18 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Product Short Name</label>
+                        <input value="{{ old('product_shortname') }}" type="text" class="form-control @error('product_shortname') is-invalid @enderror" placeholder="Product Short Name" name="product_shortname" id="product_shortname" />
+                        @error('product_shortname')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                     
                     <div class="mb-3">
                         <label for="product_desc" class="form-label">Product Desc</label>
-                        <textarea class="form-control  @error('product_name') is-invalid @enderror"" name="product_desc" id="product_desc" rows="3">
-                            {{ old('product_desc') }}
-                        </textarea>
+                        <textarea class="form-control  @error('product_desc') is-invalid @enderror" name="product_desc" id="product_desc" rows="3">{{ old('product_desc') }}</textarea>
                         @error('product_name')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -111,6 +119,7 @@ $(function () {
         },
         columns: [
             {data: 'id', class:'text-center'},
+            {data: 'product_shortname'},
             {data: 'product_name'},
             {data: 'product_type', class:'text-center',
                 render: function(product_type, type, row) {
@@ -160,6 +169,7 @@ $(function () {
             $('#ajaxModel').modal('show');
             $('#product_id').val(data.id);
             $('#product_name').val(data.product_name);
+            $('#product_shortname').val(data.product_shortname);
             $('#product_desc').val(data.product_desc);
             $('#product_type').val(data.product_type);
             $('#status').val(data.status);
