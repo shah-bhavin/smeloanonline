@@ -59,21 +59,13 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="name" class="form-label">Product Short Name</label>
-                        <input value="{{ old('product_shortname') }}" type="text" class="form-control @error('product_shortname') is-invalid @enderror" placeholder="Product Short Name" name="product_shortname" id="product_shortname" />
-                        @error('product_shortname')
+                        <label for="name" class="form-label">Product Table</label>
+                        <input value="{{ old('product_table') }}" type="text" class="form-control @error('product_table') is-invalid @enderror" placeholder="Product Short Name" name="product_table" id="product_table" />
+                        @error('product_table')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    
-                    <div class="mb-3">
-                        <label for="product_desc" class="form-label">Product Desc</label>
-                        <textarea class="form-control  @error('product_desc') is-invalid @enderror" name="product_desc" id="product_desc" rows="3">{{ old('product_desc') }}</textarea>
-                        @error('product_name')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                          
+                                             
                     <div class="mb-3">
                         <label for="status" class="form-label @error('status') is-invalid @enderror">Status</label>
                         <select name="status" id="status" class="form-control">
@@ -119,8 +111,8 @@ $(function () {
         },
         columns: [
             {data: 'id', class:'text-center'},
-            {data: 'product_shortname'},
-            {data: 'product_name'},
+            {data: 'product_name', class:'text-center'},
+            {data: 'product_table', class:'text-center'},
             {data: 'product_type', class:'text-center',
                 render: function(product_type, type, row) {
                     if (product_type == '1') {
@@ -169,8 +161,7 @@ $(function () {
             $('#ajaxModel').modal('show');
             $('#product_id').val(data.id);
             $('#product_name').val(data.product_name);
-            $('#product_shortname').val(data.product_shortname);
-            $('#product_desc').val(data.product_desc);
+            $('#product_table').val(data.product_table);
             $('#product_type').val(data.product_type);
             $('#status').val(data.status);
         })

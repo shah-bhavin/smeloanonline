@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use DB;
 
 class ApplicationController extends Controller
 {
@@ -48,7 +48,14 @@ class ApplicationController extends Controller
     public function listApplication(Request $request){
      
         if ($request->ajax()) {  
-            $data = Application::latest()->get();  
+            $data = Application::latest()
+            ->join('products', 'applications.product_type', '=', 'products.id')            
+            ->select('applications.*', 'products.product_name')
+            ->get();
+
+            //->select('applications.*', DB::raw("CONCAT(products.product_name,' (', products.product_shortname,')') AS product_fullname"))
+
+            
         }        
         return response()->json($data->toArray());
     }

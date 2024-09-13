@@ -6,6 +6,7 @@ Use App\Http\Controllers\AuthController;
 Use App\Http\Controllers\SchemeController;
 Use App\Http\Controllers\ProductsController;
 Use App\Http\Controllers\ApplicationController;
+Use App\Http\Controllers\frontend\LoanController;
 
 
 Route::post('application/save', [ApplicationController::class, 'saveApplication'])->name('save.application');
@@ -23,7 +24,7 @@ Route::group(['prefix' => 'admin'], function(){
 
         //-------------------------------------------Application Route -------------------------------------
         Route::get('application', [ApplicationController::class, 'index'])->name('api.application');
-        Route::get('application/list', [ApplicationController::class, 'listApplication'])->name('admin.list.application');
+        Route::get('application/list', [LoanController::class, 'listApplication'])->name('admin.list.application');
         Route::post('application/save', [ApplicationController::class, 'saveApplication'])->name('admin.save.application');
         Route::get('application/edit/{id}', [ApplicationController::class, 'editApplication'])->name('admin.edit.application');
         Route::delete('application/delete/{id}', [ApplicationController::class, 'deleteApplication'])->name('delete.application');
@@ -34,5 +35,8 @@ Route::group(['prefix' => 'admin'], function(){
         Route::post('products/save', [ProductsController::class, 'saveProduct'])->name('save.product');
         Route::get('products/edit/{id}', [ProductsController::class, 'editProduct'])->name('edit.product');
         Route::delete('products/delete/{id}', [ProductsController::class, 'deleteProduct'])->name('delete.product');
+
+        //-------------------------------------------Loan Route -------------------------------------
+        Route::get('viewLoan', [LoanController::class, 'viewLoan'])->name('api.loan.view');
     });
 });

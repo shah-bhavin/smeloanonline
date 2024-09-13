@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Subsidyloan extends Model
 {
     use HasFactory;
     protected $fillable = [
         'id',
-        'product_name',
-        'product_table', 
-        'product_type',       
+        'name',
+        'phone',
+        'cost_with_gst',
+        'machine_used_before',
+        'machine_ready_time',
         'status',
         'created_at',
         'updated_at',

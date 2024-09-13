@@ -4,9 +4,18 @@ use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\AuthController;
 Use App\Http\Controllers\ApplicationController;
 Use App\Http\Controllers\SchemeController;
-Use App\Http\Controllers\ProductsController;
+Use App\Http\Controllers\frontend\LoanController;
 
-Route::get('/', [ProductsController::class, 'showProductsHome'])->name('homme.product');
+Use App\Http\Controllers\ProductsController as BackProducts;
+Use App\Http\Controllers\frontend\ProductsController as FrontProducts;
+
+use App\Models\Product;
+
+
+Route::get('/', [LoanController::class, 'index'])->name('homme.product');
+Route::post('/loan/saveLoan',[LoanController::class, 'saveLoan'])->name('save.loan');
+Route::get('/loan/{loan_type}',[LoanController::class, 'loan'])->name('show.loan');
+
 
 
 Route::group(['prefix' => 'admin'], function(){
@@ -37,7 +46,7 @@ Route::group(['prefix' => 'admin'], function(){
 
         //-------------------------------------------Product Route -------------------------------------
 
-        Route::get('products', [ProductsController::class, 'index'])->name('index.product');
+        Route::get('products', [BackProducts::class, 'index'])->name('index.product');
 
     });
 });

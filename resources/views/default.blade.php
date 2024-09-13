@@ -1,53 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="{{ asset('css/frontend.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
-</head>
-<body>
-
-    <nav class="navbar navbar-expand-sm fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="javascript:void(0)"><img src="{{ asset('img/logo.png') }}" alt="SME Loan Online" class="site-logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="javascript:void(0)">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="javascript:void(0)">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="javascript:void(0)">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="javascript:void(0)">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase apply-button" href="javascript:void(0)">Apply</a>
-                </li>
-            </ul>
-            <!-- <form class="d-flex">
-                <input class="form-control me-2" type="text" placeholder="Search">
-                <button class="btn btn-primary" type="button">Search</button>
-            </form> -->
-            </div>
-        </div>
-    </nav>
+@extends('layouts.frontend')
+@section('content')    
 
     <div class="container pt-5 pb-5">
         <div class="row align-items-center">
@@ -62,7 +14,7 @@
         </div>
     </div>
 
-    <div class="container-fluid light-brown-background pt-5 pb-5">
+    <!-- <div class="container-fluid light-brown-background pt-5 pb-5">
         <div class="container pt-5 pb-5">
             <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -117,7 +69,7 @@
                 </div>
             </div>
         </div>
-    </div>   
+    </div>    -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -154,17 +106,15 @@
             </div>
         </div>
     </footer>
-</body>
-</html>
 
-<script type="text/javascript">
+
+<!-- <script type="text/javascript">
     $(function () {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
         $('.showProductInqueryForm').click(function () {
             var product_id = $(this).data('id');
             var product_type = $(this).data('type');
@@ -174,6 +124,7 @@
             $('#productForm').trigger("reset");
             $('#modelHeading').html(product_name);
             $('#ajaxModel').modal('show');
+            $(step[0]).find("input[type=text]").focus();
         });
 
         $('#saveBtn').click(function (e) {
@@ -209,47 +160,100 @@
                 $('.'+key+'_err').text(value);
             });
     }
-</script>
+</script> -->
 
-<div class="modal fade" id="ajaxModel" aria-hidden="true">
+<div class="modal bottom-modal animate__animated animate__fadeInUp" id="ajaxModel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title text-uppercase" id="modelHeading"></h4>
                 <button type="button" class="btn btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
+            </div>
             <div class="modal-body">
-                <form id="productForm" name="productForm" class="form-horizontal">
-                    <input type="hidden" name="application_id" id="application_id">
-                    <input type="hidden" name="product_type" id="product_type">
+                <div class="progress">
+                    <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 0%"></div>
+                </div>
+                <div id="qbox-container">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <form class="needs-validation text-center" id="form-wrapper" method="post" name="form-wrapper" novalidate="">
+                                    <div id="steps-container">
+                                        
+                                        <div class="step" id="step">
+                                            <label class="form-label pb-1">Cost of machine with GST???</label> 
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon1">&#8377;</span>
+                                                <input type="text" class="form-control required" aria-describedby="basic-addon1">
+                                            </div>
+                                            <div class="validation-error d-none">Please Enter Valid Data</div>
+                                        </div>
 
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input value="{{ old('name') }}" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Name" name="name" id="name" />
-                        <span class="text-danger err name_err"></span> 
+                                        <div class="step" id="step">                                                                                        
+                                            <label class="form-label">Have you used such machine before???</label> 
+                                            <div class="d-flex justify-content-evenly">
+                                                <div class="form-check">
+                                                    <input class="form-check-input required" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                                    <label class="form-check-label float-start" for="flexRadioDefault1">
+                                                        &nbsp;Yes
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input required" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                                    <label class="form-check-label float-start" for="flexRadioDefault2">
+                                                    &nbsp;No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="step">
+                                            <label class="form-label">When will machine be ready for delivery</label> 
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon1">&#8377;</span>
+                                                <input type="text" class="form-control required" aria-describedby="basic-addon1">
+                                            </div>
+                                            <div class="validation-error d-none">Please Enter Valid Data</div>
+                                        </div>
+
+                                        <div class="step">
+                                            <label class="form-label">Your Name</label> 
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon1">&#8377;</span>
+                                                <input type="text" class="form-control required" aria-describedby="basic-addon1">
+                                            </div>
+                                            <div class="validation-error d-none">Please Enter Valid Data</div>
+                                        </div> 
+                                        
+                                        <div class="step">
+                                            <label class="form-label">Your Mobile Number</label> 
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon1">&#8377;</span>
+                                                <input type="text" class="form-control required" aria-describedby="basic-addon1">
+                                            </div>
+                                            <div class="validation-error d-none">Please Enter Valid Data</div>
+                                        </div>
+                                        
+                                        <div id="success">
+                                            <div class="mt-5">
+                                            <h4>Success! We'll get back to you ASAP!</h4>
+                                            <p>Meanwhile, clean your hands often, use soap and water, or an alcohol-based hand rub, maintain a safe distance from anyone who is coughing or sneezing and always wear a mask when physical distancing is not possible.</p>
+                                            <a class="back-link" href="">Go back from the beginning ➜</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="q-box__buttons">
+                                        <button id="prev-btn" type="button" class="button" style="bottom:0px !important;">Previous</button> 
+                                        <button id="next-btn" type="button" class="button">Next</button> 
+                                        <button id="submit-btn" type="submit" class="button">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        <div class="col-md-4"></div>                                
                     </div>
-
-                    <div class="mb-3">
-                        <label for="mobile" class="form-label">Mobile</label>
-                        <input value="{{ old('mobile') }}" type="text" class="form-control @error('mobile') is-invalid @enderror" placeholder="Mobile" name="mobile" id="mobile" />
-                        <span class="text-danger err mobile_err"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="city" class="form-label">City</label>
-                        <input value="{{ old('city') }}" type="text" class="form-control @error('city') is-invalid @enderror" placeholder="City" name="city" id="city" />
-                        <span class="text-danger err city_err"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="city" class="form-label">Loan Time</label>
-                        <input value="{{ old('loan_time') }}" type="text" class="form-control @error('loan_time') is-invalid @enderror" placeholder="Loan Time" name="loan_time" id="loan_time" />
-                        <span class="text-danger err loan_time_err"></span>
-                    </div>
-
-                    <button type="submit" class="button float-end" id="saveBtn" value="create">Save</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
+@endsection('content')

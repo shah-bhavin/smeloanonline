@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('applications', function (Blueprint $table) {
+        Schema::create('subsidyloans', function (Blueprint $table) {
             $table->id();
-            $table->string('applicants_name')->nullable();
-            $table->string('applicants_mobile')->nullable();
-            $table->string('applicants_city')->nullable();
-            $table->string('loan_time')->nullable();
-            $table->integer('product_type')->default('2'); //1:Loan, 2:Subsidy
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('cost_with_gst')->nullable();            
+            $table->enum('machine_used_before', ['1','2'])->default('1')->nullable(); //1:Yes, 2:No
+            $table->string('machine_ready_time')->nullable();
             $table->enum('status', ['1','2'])->default('1'); //1:Active, 2:Inactive
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('applications');
+        Schema::dropIfExists('subsidyloans');
     }
 };
